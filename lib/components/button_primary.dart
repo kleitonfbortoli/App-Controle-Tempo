@@ -12,11 +12,23 @@ class ButtonPrimary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: Text(label),
-      onPressed: (){},
-      style:  ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: ElevatedButton(
+        child: Text(
+            label,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              height: 2.5,
+              fontFamily: 'Montserrat',
+           leadingDistribution: TextLeadingDistribution.even
+            ),
+        ),
+        onPressed: (){},
+        style:  ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        ),
       ),
     );
   }

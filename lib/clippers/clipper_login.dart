@@ -7,18 +7,24 @@ class ClipperLogin extends CustomClipper<Path> {
     Path path = Path();
     path.lineTo(0, size.height);
     path.lineTo(size.width, size.height);
-    path.lineTo(size.width, 0);
+    path.lineTo(size.width, 70);
     path.quadraticBezierTo(
-        3/4 * size.width,
-        40,
-        size.width/2,
-        20
+        0.8 * size.width,
+        0,
+        0.65 * size.width,
+        50
     );
     path.quadraticBezierTo(
-        1/4 * size.width,
+        0.55 * size.width,
+        80,
+        0.45 * size.width,
+        60
+    );
+    path.quadraticBezierTo(
+        0.20 * size.width,
+        20,
         0,
-        0,
-        30
+        60
     );
 
     return path;
