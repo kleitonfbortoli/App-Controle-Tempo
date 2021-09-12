@@ -15,7 +15,8 @@ class PageTitle extends StatelessWidget {
               text: text,
               style: TextStyle(
                   color: color,
-                  fontSize: 40
+                  fontSize: 40,
+                  fontFamily: 'Montserrat'
               ),
             )
         )

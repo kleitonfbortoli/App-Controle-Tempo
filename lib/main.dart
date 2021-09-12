@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:touch/pages/criar_conta_page.dart';
+import 'package:touch/pages/recuperacao_senha_page.dart';
 
 import 'pages/login_page.dart';
 
@@ -25,8 +27,10 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        fontFamily: 'Montserrat',
+        backgroundColor: Colors.white,
       ),
-      home: const LoginPage(),
+      home: const CriarContaPage(),
     );
   }
 }

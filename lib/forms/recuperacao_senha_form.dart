@@ -5,8 +5,8 @@ import 'package:touch/components/input_field.dart';
 import 'package:touch/components/logo.dart';
 import 'package:touch/components/page_title.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({Key? key}) : super(key: key);
+class RecuperacaoSenhaForm extends StatelessWidget {
+  const RecuperacaoSenhaForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class LoginForm extends StatelessWidget {
                     bottom: 50.0
                 ),
                 child: const PageTitle(
-                    text: 'Login',
+                    text: 'Recuperar Senha',
                     color: Colors.black
                 )
               ),
@@ -29,20 +29,16 @@ class LoginForm extends StatelessWidget {
                 padding: EdgeInsets.all(18.0),
                 child: InputField(label: 'E-mail', input_type: TextInputType.text),
               ),
-              const Padding(
-                padding: EdgeInsets.all(18.0),
-                child: InputField(label: 'Senha', input_type: TextInputType.text),
-              ),
 
               Container(
                 margin: const EdgeInsets.only(
-                    top: 150.0
+                    top: 250.0
                 ),
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width / 1.5,
-                    child: const ButtonPrimary(label: 'Entrar')
+                    child: const ButtonPrimary(label: 'Enviar')
                   ),
                 ),
               ),
