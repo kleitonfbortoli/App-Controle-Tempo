@@ -38,7 +38,10 @@ class RecuperacaoSenhaForm extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width / 1.5,
-                    child: const ButtonPrimary(label: 'Enviar')
+                    child: ButtonPrimary(
+                      label: 'Enviar',
+                      callback: (){},
+                    )
                   ),
                 ),
               ),

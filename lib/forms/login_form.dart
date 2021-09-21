@@ -42,7 +42,12 @@ class LoginForm extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width / 1.5,
-                    child: const ButtonPrimary(label: 'Entrar')
+                    child: ButtonPrimary(
+                      label: 'Entrar',
+                      callback: (){
+                        Navigator.of(context).pushReplacementNamed('create-count');
+                      },
+                    )
                   ),
                 ),
               ),
