@@ -30,7 +30,12 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         backgroundColor: Colors.white,
       ),
-      home: const CriarContaPage(),
+      initialRoute: 'create-count',
+      routes: {
+        'login': (context) => LoginPage(),
+        'create-count': (context) => CriarContaPage(),
+        'reset-pass': (context) => RecuperacaoSenhaPage(),
+      },
     );
   }
 }

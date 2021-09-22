@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 class ButtonPrimary extends StatelessWidget {
   final String label;
+  final VoidCallback callback;
   const ButtonPrimary(
       {
         Key? key,
-        required this.label
+        required this.label,
+        required this.callback
       }
       ) : super(key: key);
 
@@ -25,7 +27,7 @@ class ButtonPrimary extends StatelessWidget {
            leadingDistribution: TextLeadingDistribution.even
             ),
         ),
-        onPressed: (){},
+        onPressed: callback,
         style:  ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
         ),

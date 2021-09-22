@@ -18,10 +18,10 @@ class _CriarContaPage extends State<CriarContaPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
-          children: const <Widget>[
-            LoginBackground(),
-            CriarContaForm()
-          ],
+        children: const <Widget>[
+          LoginBackground(),
+          CriarContaForm()
+        ],
       )
     );
   }
