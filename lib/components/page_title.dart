@@ -4,7 +4,12 @@ class PageTitle extends StatelessWidget {
   final String text;
   final Color color;
 
-  const PageTitle({Key? key, required this.text, required this.color}) : super(key: key);
+  const PageTitle(
+      {
+        Key? key,
+        required this.text,
+        required this.color,
+      }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,8 @@ class PageTitle extends StatelessWidget {
               style: TextStyle(
                   color: color,
                   fontSize: 40,
-                  fontFamily: 'Montserrat'
+                  fontFamily: 'Montserrat',
+                  fontWeight:  FontWeight.bold
               ),
             )
         )

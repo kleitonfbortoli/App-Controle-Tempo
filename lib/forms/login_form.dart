@@ -1,5 +1,8 @@
+import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:touch/api/requests.dart';
+import 'package:touch/models/pessoas_model.dart';
 import 'package:touch/components/button_primary.dart';
 import 'package:touch/components/input_field.dart';
 import 'package:touch/components/logo.dart';
@@ -45,7 +48,10 @@ class LoginForm extends StatelessWidget {
                     child: ButtonPrimary(
                       label: 'Entrar',
                       callback: (){
-                        Navigator.of(context).pushReplacementNamed('create-count');
+                        // Navigator.of(context).pushReplacementNamed('create-count');\
+                        // print('chamando');
+                        // PessoaModel().getAll();
+                        new Request().showGenericSuccessMessage({'id':1});
                       },
                     )
                   ),

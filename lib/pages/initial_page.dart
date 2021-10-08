@@ -1,9 +1,6 @@
-
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:touch/backgrounds/login_background.dart';
-import 'package:touch/forms/login_form.dart';
+import 'package:touch/forms/initial_form.dart';
+import 'package:touch/painters/pages_painter.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({Key? key}) : super(key: key);
@@ -16,12 +13,10 @@ class _InitialPageState extends State<InitialPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: Stack(
-          children: const <Widget>[
-            LoginBackground(),
-            LoginForm()
-          ],
+        resizeToAvoidBottomInset: false,
+        body: CustomPaint(
+          painter: PagePainter(),
+          child: InitialForm()
         )
     );
   }

@@ -1,9 +1,6 @@
-
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:touch/backgrounds/login_background.dart';
 import 'package:touch/forms/criar_conta_form.dart';
+import 'package:touch/painters/login_painter.dart';
 
 class CriarContaPage extends StatefulWidget {
   const CriarContaPage({Key? key}) : super(key: key);
@@ -15,13 +12,11 @@ class CriarContaPage extends StatefulWidget {
 class _CriarContaPage extends State<CriarContaPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: const <Widget>[
-          LoginBackground(),
-          CriarContaForm()
-        ],
+    return  Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: CustomPaint(
+        painter: LoginPainter(),
+        child: CriarContaForm()
       )
     );
   }
