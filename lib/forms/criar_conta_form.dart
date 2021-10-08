@@ -14,7 +14,11 @@ class CriarContaForm extends StatelessWidget {
     return Center(
       child: ListView(
         children: <Widget>[
-          const TouchLogo(),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height *.3,
+            child: TouchLogo(),
+          ),
           Column(
             children: <Widget>[
               Container(

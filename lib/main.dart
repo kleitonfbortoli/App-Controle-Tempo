@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:touch/pages/Atividades_page.dart';
 import 'package:touch/pages/criar_conta_page.dart';
+import 'package:touch/pages/initial_page.dart';
 import 'package:touch/pages/recuperacao_senha_page.dart';
+import 'package:touch/pages/test_page.dart';
 
 import 'pages/login_page.dart';
 
@@ -30,11 +33,14 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         backgroundColor: Colors.white,
       ),
-      initialRoute: 'create-count',
+      initialRoute: 'initial-page',
       routes: {
         'login': (context) => LoginPage(),
         'create-count': (context) => CriarContaPage(),
         'reset-pass': (context) => RecuperacaoSenhaPage(),
+        'teste-page': (context) => TestPage(),
+        'initial-page': (context) => InitialPage(),
+        'atividades-page': (context) => AtividadesPage(),
       },
     );
   }

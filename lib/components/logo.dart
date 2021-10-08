@@ -5,10 +5,6 @@ class TouchLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 250,
-      height: 250,
-      child: Image.asset('assets/logo.png'),
-    );
+    return Image.asset('assets/logo.png');
   }
 }
