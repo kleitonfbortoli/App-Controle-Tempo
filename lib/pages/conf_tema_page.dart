@@ -6,14 +6,14 @@ import 'package:touch/forms/perfil_form.dart';
 import 'package:touch/painters/login_painter.dart';
 import 'package:touch/painters/white_painter.dart';
 
-class TestPage extends StatefulWidget {
-  const TestPage({Key? key}) : super(key: key);
+class ConfTemaPage extends StatefulWidget {
+  const ConfTemaPage({Key? key}) : super(key: key);
 
   @override
-  _TestPageState createState() => _TestPageState();
+  _ConfTemaPageState createState() => _ConfTemaPageState();
 }
 
-class _TestPageState extends State<TestPage> {
+class _ConfTemaPageState extends State<ConfTemaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

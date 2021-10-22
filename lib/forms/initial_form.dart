@@ -7,41 +7,43 @@ import 'package:touch/components/logo.dart';
 import 'package:touch/components/page_title.dart';
 
 class InitialForm extends StatelessWidget {
-  List<InitialListItem> itens = [
-    InitialListItem(
-      action: (){
-        print('asdasd');
-      },
-      icon: Icons.person,
-      label: 'Perfil',
-    ),
-    InitialListItem(
-      action: (){
-        print('asdasd');
-      },
-      icon: Icons.event_note,
-      label: 'Atividades',
-    ),
-    InitialListItem(
-      action: (){
-        print('asdasd');
-      },
-      icon: Icons.assessment,
-      label: 'Estatísticas',
-    ),
-    InitialListItem(
-      action: (){
-        print('asdasd');
-      },
-      icon: Icons.settings,
-      label: 'Configurações',
-    ),
-  ];
+
 
   InitialForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<InitialListItem> itens = [
+      InitialListItem(
+        action: (){
+          print('asdasd');
+        },
+        icon: Icons.person,
+        label: 'Perfil',
+      ),
+      InitialListItem(
+        action: (){
+          Navigator.pushNamed(context, 'atividades-page');
+        },
+        icon: Icons.event_note,
+        label: 'Atividades',
+      ),
+      InitialListItem(
+        action: (){
+          print('asdasd');
+        },
+        icon: Icons.assessment,
+        label: 'Estatísticas',
+      ),
+      InitialListItem(
+        action: (){
+          Navigator.pushNamed(context, 'configuration-page');
+        },
+        icon: Icons.settings,
+        label: 'Configurações',
+      ),
+    ];
+
     List<Container> a = <Container>[];
 
     for(var i=0; i < itens.length; i++) {
