@@ -14,22 +14,26 @@ class ButtonPrimary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: ElevatedButton(
-        child: Text(
-            label,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              height: 2.5,
-              fontFamily: 'Montserrat',
-           leadingDistribution: TextLeadingDistribution.even
-            ),
+    return  ElevatedButton(
+      child: Text(
+          label,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            height: 2.5,
+            fontFamily: 'Montserrat',
+            leadingDistribution: TextLeadingDistribution.even
+          ),
+      ),
+      onPressed: callback,
+      style: ElevatedButton.styleFrom(
+        primary: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
         ),
-        onPressed: callback,
-        style:  ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        side: const BorderSide(
+          width: 2.0,
+          color: Colors.lightBlue,
         ),
       ),
     );

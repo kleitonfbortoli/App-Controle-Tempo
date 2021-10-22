@@ -27,7 +27,8 @@ class CriarContaForm extends StatelessWidget {
                 ),
                 child: const PageTitle(
                     text: 'Criar uma conta',
-                    color: Colors.black
+                    color: Colors.black,
+                    font_size: 40,
                 )
               ),
               const Padding(

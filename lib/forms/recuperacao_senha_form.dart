@@ -26,7 +26,8 @@ class RecuperacaoSenhaForm extends StatelessWidget {
                 ),
                 child: const PageTitle(
                     text: 'Recuperar Senha',
-                    color: Colors.black
+                    color: Colors.black,
+                    font_size: 40,
                 )
               ),
               const Padding(

@@ -3,12 +3,14 @@ import 'package:flutter/cupertino.dart';
 class PageTitle extends StatelessWidget {
   final String text;
   final Color color;
+  final double font_size;
 
   const PageTitle(
       {
         Key? key,
         required this.text,
         required this.color,
+        required this.font_size,
       }) : super(key: key);
 
   @override
@@ -20,8 +22,7 @@ class PageTitle extends StatelessWidget {
               text: text,
               style: TextStyle(
                   color: color,
-                  fontSize: 40,
-                  fontFamily: 'Montserrat',
+                  fontSize: font_size,
                   fontWeight:  FontWeight.bold
               ),
             )
