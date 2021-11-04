@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:touch/constants/response_constants.dart';
 import 'package:touch/constants/system_urls.dart' as system_urls;
+import 'package:touch/controlers/session_control.dart';
 
 class Request {
   String Entity = '';
@@ -22,45 +23,79 @@ class Request {
 
   void getAll() async {
     _method = 'consultar';
+    String? token = await SessionControl().getJWT();
     var uri = Uri.parse(system_urls.api_url + Entity);
 
-    var response = http.get(uri);
+    var response = http.get(
+        uri,
+        headers: {
+          'Authorization': 'Bearer $token',
+        }
+    );
 
     handlerRequest(response);
   }
 
   void get(int EntityId) async {
     _method = 'consultar';
+    String? token = await SessionControl().getJWT();
     var uri = Uri.parse(system_urls.api_url + Entity + "/" + EntityId.toString());
 
-    var response = http.get(uri);
+    var response = http.get(
+        uri,
+        headers: {
+          'Authorization': 'Bearer $token',
+        }
+    );
 
     handlerRequest(response);
   }
 
   void post(Object data) async {
+    String? token = await SessionControl().getJWT();
+    SessionControl().getJWT().then((value) => print(value));
     _method = 'criar';
     var uri = Uri.parse(system_urls.api_url + Entity);
 
-    var response = http.post(uri, body: data);
+    var response = http.post(
+        uri,
+        body: data,
+        headers: {
+          'Authorization': 'Bearer $token',
+        }
+    );
 
     handlerRequest(response);
   }
 
   void put(int EntityId, Object data) async {
     _method = 'atualizar';
+    String? token = await SessionControl().getJWT();
     var uri = Uri.parse(system_urls.api_url + Entity + "/" + EntityId.toString());
-
-    var response = http.post(uri, body: data);
+    print(system_urls.api_url + Entity + "/" + EntityId.toString());
+    var response = http.post(
+        uri,
+        body: jsonEncode(data),
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          'Authorization': 'Bearer $token',
+        }
+    );
 
     handlerRequest(response);
   }
 
   void delete(int EntityId) async {
     _method = 'deletar';
+    String? token = await SessionControl().getJWT();
     var uri = Uri.parse(system_urls.api_url + Entity + "/" + EntityId.toString());
 
-    var response = http.delete(uri);
+    var response = http.delete(
+        uri,
+        headers: {
+          'Authorization': 'Bearer $token',
+        }
+    );
 
     handlerRequest(response);
   }
@@ -77,7 +112,8 @@ class Request {
     var htppCode = response.statusCode;
     
     var json = jsonDecode(response.body);
-    
+    print('json');
+    print(response.reasonPhrase);
     if(httpSuccessCodes.contains(htppCode)) {
       handleSuccess(json);
     } else {
@@ -98,6 +134,7 @@ class Request {
 
   void handleException(error){
     print("exception");
+    print(error);
   }
 
   int getHttpStatusCode(http.Response response){
