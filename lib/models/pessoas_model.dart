@@ -5,7 +5,5 @@ class PessoaModel extends Request implements BaseModel {
   @override
   String Entity = 'pessoa';
 
-  bool login() {
-    return true;
-  }
+
 }

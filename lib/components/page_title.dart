@@ -4,6 +4,7 @@ class PageTitle extends StatelessWidget {
   final String text;
   final Color color;
   final double font_size;
+  final FontWeight fontWeight;
 
   const PageTitle(
       {
@@ -11,6 +12,7 @@ class PageTitle extends StatelessWidget {
         required this.text,
         required this.color,
         required this.font_size,
+        this.fontWeight = FontWeight.bold
       }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class PageTitle extends StatelessWidget {
               style: TextStyle(
                   color: color,
                   fontSize: font_size,
-                  fontWeight:  FontWeight.bold
+                  fontWeight:  fontWeight
               ),
             )
         )

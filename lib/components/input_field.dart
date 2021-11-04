@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 class InputField extends StatelessWidget {
   final String label;
   final TextInputType input_type;
+  final TextEditingController controller;
   const InputField(
       {
         Key? key,
         required this.label,
         required this.input_type,
+        required this.controller,
       }
   ) : super(key: key);
 
@@ -16,6 +18,7 @@ class InputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
         keyboardType: input_type,
+        controller: controller,
         style: const TextStyle(color: Colors.black, fontSize: 20),
         decoration: InputDecoration(
             labelText: label,
