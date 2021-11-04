@@ -5,6 +5,7 @@ import 'package:touch/components/input_field.dart';
 import 'package:touch/components/link_label.dart';
 import 'package:touch/components/logo.dart';
 import 'package:touch/components/page_title.dart';
+import 'package:touch/controlers/session_control.dart';
 
 class RecuperacaoSenhaForm extends StatelessWidget {
   const RecuperacaoSenhaForm({Key? key}) : super(key: key);
@@ -97,12 +98,9 @@ class RecuperacaoSenhaForm extends StatelessWidget {
                   label: 'Enviar',
                   showBorder: false,
                   callback: (){
-                    // Navigator.of(context).pushReplacementNamed('create-count');\
-                    // print('chamando');
-                    // PessoaModel().getAll();
-                    // new Request().showGenericSuccessMessage({'id':2});
-                    Navigator.pushNamed(context, 'initial-page');
-
+                    SessionControl.me(
+                            (Map<String, dynamic>obj) => print(obj)
+                    );
                   },
                 )
             ),

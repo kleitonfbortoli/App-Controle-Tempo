@@ -41,6 +41,25 @@ class SessionControl{
     authModel.post(data);
   }
 
+  static void me(Function(Map<String, dynamic> json) func) {
+    var authModel = AuthModel();
+    authModel.setMethod('me');
+    authModel.setSuccessCallback(func);
+
+    authModel.setErrorCallback(
+            (Map<String, dynamic>obj) => Fluttertoast.showToast(
+          msg: "Usuário não encontrado",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.CENTER,
+          backgroundColor: Colors.redAccent,
+          textColor: Colors.black,
+          fontSize: 20,
+        )
+    );
+
+    authModel.post({});
+  }
+
   void saveJWT(String jwt) async {
     await storage.write(key: 'JWT', value: jwt);
   }

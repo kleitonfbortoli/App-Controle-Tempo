@@ -1,5 +1,0 @@
-class userControl {
-  void cadastro() {
-
-  }
-}

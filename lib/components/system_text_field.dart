@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 
 class SystemTextField extends StatelessWidget {
   final String label;
+  final TextEditingController controller;
   const SystemTextField(
       {
         Key? key,
         required this.label,
+        required this.controller,
+
       }
       ) : super(key: key);
 
@@ -25,6 +28,7 @@ class SystemTextField extends StatelessWidget {
       child : Padding(
         padding:  const EdgeInsets.fromLTRB(17, 0, 0, 0),
         child: TextField(
+          controller: controller,
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(bottom: 10, top: 10, left: 10, right: 10),
             labelText: label,

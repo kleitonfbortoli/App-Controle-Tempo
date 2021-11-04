@@ -2,21 +2,39 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:touch/api/requests.dart';
 import 'package:touch/components/button_primary.dart';
-import 'package:touch/components/fadingListView.dart';
-import 'package:touch/components/initial_bar.dart';
-import 'package:touch/components/initial_list_item.dart';
-import 'package:touch/components/logo.dart';
 import 'package:touch/components/page_title.dart';
 import 'package:touch/components/profile_image.dart';
 import 'package:touch/components/return_arrow.dart';
 import 'package:touch/components/system_text_field.dart';
 import 'package:touch/constants/app_colors.dart';
+import 'package:touch/controlers/pessoa_control.dart';
+import 'package:touch/controlers/session_control.dart';
+import 'package:touch/objects/pessoa.dart';
 
 class PerfilForm extends StatelessWidget {
+  TextEditingController  nomeController = TextEditingController();
+  TextEditingController  emailController = TextEditingController();
+  TextEditingController  senhaController = TextEditingController();
+  TextEditingController  cepController = TextEditingController();
+  TextEditingController  ruaController = TextEditingController();
+  TextEditingController  estadoController = TextEditingController();
+  TextEditingController  paisController = TextEditingController();
+
+
   PerfilForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SessionControl.me(
+        (Map<String, dynamic>obj) {
+          nomeController.text = obj['nome'];
+          emailController.text = obj['email'];
+          cepController.text = obj['cep'];
+          ruaController.text = obj['rua'];
+          estadoController.text = obj['estado'];
+          paisController.text = obj['pais'];
+        }
+    );
     return Center(
         child: Column(
           children: [
@@ -55,29 +73,61 @@ class PerfilForm extends StatelessWidget {
             SizedBox(
                 width: MediaQuery.of(context).size.width * .8,
                 height: MediaQuery.of(context).size.height *.53,
-                child: Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10, top: 20),
-                      child:  SystemTextField(label: "Nome")
-                    ),
-                    Padding(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child:  SystemTextField(label: "E-mail")
-                    ),
-                    Padding(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child:  SystemTextField(label: "Senha")
-                    ),
-                    Padding(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child:  SystemTextField(label: "Telefone")
-                    ),
-                    Padding(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child:  SystemTextField(label: "Data de Nascimento")
-                    ),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child:ListView(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 10, top: 20),
+                        child:  SystemTextField(
+                            label: "Nome",
+                            controller: nomeController,
+                        )
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child:  SystemTextField(
+                              label: "E-mail",
+                            controller: emailController,
+                          )
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child:  SystemTextField(
+                              label: "Senha",
+                              controller: senhaController,
+                          )
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child:  SystemTextField(
+                              label: "CEP",
+                              controller: cepController,
+                          )
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child:  SystemTextField(
+                              label: "Rua",
+                              controller: ruaController,
+                          )
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child:  SystemTextField(
+                            label: "Estado",
+                            controller: estadoController,
+                          )
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child:  SystemTextField(
+                            label: "Pais",
+                            controller: paisController,
+                          )
+                      ),
+                    ],
+                  )
                 )
             ),
             SizedBox(
@@ -86,10 +136,16 @@ class PerfilForm extends StatelessWidget {
                 child: ButtonPrimary(
                   label: 'Editar',
                   callback: (){
-                    // Navigator.of(context).pushReplacementNamed('create-count');\
-                    // print('chamando');
-                    // PessoaModel().getAll();
-                    new Request().showGenericSuccessMessage({'id':1});
+                    Pessoa pessoa = Pessoa();
+                    pessoa.nome = 'kleiton';
+                    pessoa.email = emailController.text;
+                    pessoa.senha = senhaController.text;
+                    pessoa.cep = cepController.text;
+                    pessoa.rua = ruaController.text;
+                    pessoa.estado = estadoController.text;
+                    pessoa.pais = paisController.text;
+
+                    PessoaControl.atualizar(pessoa);
                   },
                 )
             ),
