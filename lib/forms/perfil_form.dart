@@ -28,7 +28,7 @@ class PerfilForm extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
                   child: ReturnArrow(action: (){
-                    print('asdasd');
+                    Navigator.pushNamed(context, 'initial-page');
                   }),
                 ),
               )

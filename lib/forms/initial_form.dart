@@ -16,7 +16,7 @@ class InitialForm extends StatelessWidget {
     List<InitialListItem> itens = [
       InitialListItem(
         action: (){
-          print('asdasd');
+          Navigator.pushNamed(context, 'perfil-page');
         },
         icon: Icons.person,
         label: 'Perfil',

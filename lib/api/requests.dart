@@ -1,19 +1,22 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+import 'package:touch/constants/response_constants.dart';
 import 'package:touch/constants/system_urls.dart' as system_urls;
 
 class Request {
   String Entity = '';
   String _method = '';
-  late Function(Object) _success_callback = showGenericSuccessMessage;
-  late Function(Object) _error_callback = showGenericErrorMessage;
+  late Function(Map<String, dynamic> json) _success_callback = showGenericSuccessMessage;
+  late Function(Map<String, dynamic> json) _error_callback = showGenericErrorMessage;
 
-  void setSuccessCallback(Function(Object) func) {
+  void setSuccessCallback(Function(Map<String, dynamic> json) func) {
     _success_callback = func;
   }
 
-  void setErrorCallback(Function(Object) func) {
+  void setErrorCallback(Function(Map<String, dynamic> json) func) {
     _error_callback = func;
   }
 
@@ -64,30 +67,44 @@ class Request {
 
   void handlerRequest(Future<http.Response> future) {
     future.then(
-        handleSuccess,
-        onError: handleError,
+        handle,
     ).catchError(
             (error) => handleException(error)
     );
   }
 
-  void handleSuccess(http.Response response){
-    _success_callback(response.body);
+  void handle(http.Response response) {
+    var htppCode = response.statusCode;
+    
+    var json = jsonDecode(response.body);
+    
+    if(httpSuccessCodes.contains(htppCode)) {
+      handleSuccess(json);
+    } else {
+      handleError(json);
+    }
   }
 
-  void handleError(http.Response error){
-    _error_callback(error.body);
+  void handleSuccess(Map<String, dynamic> json){
+    print("Success");
+    _success_callback(json);
   }
 
-  void handleException(Exception error){
+  void handleError(Map<String, dynamic> json){
+    print("error");
+    print(json);
+    _error_callback(json);
+  }
 
+  void handleException(error){
+    print("exception");
   }
 
   int getHttpStatusCode(http.Response response){
     return response.statusCode;
   }
 
-  void showGenericSuccessMessage(Object data){
+  void showGenericSuccessMessage(Map<String, dynamic> data){
     Fluttertoast.showToast(
         msg: getGenericSuccessMessage(),
         toastLength: Toast.LENGTH_LONG,
@@ -98,7 +115,7 @@ class Request {
     );
   }
 
-  void showGenericErrorMessage(Object data){
+  void showGenericErrorMessage(Map<String, dynamic> data){
     Fluttertoast.showToast(
         msg: getGenericErrorMessage(),
         toastLength: Toast.LENGTH_LONG,

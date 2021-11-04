@@ -10,6 +10,7 @@ import 'package:touch/pages/test_page.dart';
 
 import 'pages/login_page.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() {
   runApp(const MyApp());
 }
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Touch',
+      navigatorKey: navigatorKey,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         backgroundColor: Colors.white,
       ),
-      initialRoute: 'teste-page',
+      initialRoute: 'login',
       routes: {
         'login': (context) => const LoginPage(),
         'create-count': (context) => const CriarContaPage(),
