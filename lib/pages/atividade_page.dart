@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:touch/forms/atividade_form.dart';
 import 'package:touch/painters/white_painter.dart';
 
-class TestPage extends StatefulWidget {
-  const TestPage({Key? key}) : super(key: key);
+class AtividadePage extends StatefulWidget {
+  const AtividadePage({Key? key}) : super(key: key);
 
   @override
-  _TestPageState createState() => _TestPageState();
+  _AtividadePageState createState() => _AtividadePageState();
 }
 
-class _TestPageState extends State<TestPage> {
+class _AtividadePageState extends State<AtividadePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
