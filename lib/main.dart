@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:touch/pages/Atividades_page.dart';
+import 'package:touch/pages/atividade_page.dart';
 import 'package:touch/pages/conf_tema_page.dart';
 import 'package:touch/pages/configuracoes_page.dart';
 import 'package:touch/pages/criar_conta_page.dart';
 import 'package:touch/pages/initial_page.dart';
 import 'package:touch/pages/perfil_page.dart';
 import 'package:touch/pages/recuperacao_senha_page.dart';
+import 'package:touch/pages/subtarefa_page.dart';
 import 'package:touch/pages/test_page.dart';
 
 import 'pages/login_page.dart';
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         backgroundColor: Colors.white,
       ),
-      initialRoute: 'login',
+      initialRoute: 'teste-page',
       routes: {
         'login': (context) => const LoginPage(),
         'create-count': (context) => const CriarContaPage(),
@@ -46,9 +48,11 @@ class MyApp extends StatelessWidget {
         'teste-page': (context) => const TestPage(),
         'initial-page': (context) => const InitialPage(),
         'atividades-page': (context) => const AtividadesPage(),
+        'atividade-page': (context) => const AtividadePage(),
         'perfil-page' : (context) => const PerfilPage(),
         'configuration-page' : (context) => const ConfiguracoesPage(),
         'tema-page' : (context) => const ConfTemaPage(),
+        'subtarefa-page' : (context) => const SubtarefaPage(),
       },
     );
   }
