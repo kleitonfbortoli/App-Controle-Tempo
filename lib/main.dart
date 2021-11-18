@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Touch',
       navigatorKey: navigatorKey,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
