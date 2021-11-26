@@ -11,5 +11,4 @@ class Atividade extends Object {
       'ref_pessoa': ref_pessoa,
       'ref_atividade': ref_atividade,
     };
-  }
 }
