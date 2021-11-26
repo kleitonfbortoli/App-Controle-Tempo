@@ -5,18 +5,18 @@ import 'package:touch/components/input_field.dart';
 import 'package:touch/components/link_label.dart';
 import 'package:touch/components/logo.dart';
 import 'package:touch/components/page_title.dart';
+import 'package:touch/controlers/pessoa_control.dart';
 
 class CriarContaForm extends StatelessWidget {
-  const CriarContaForm({Key? key}) : super(key: key);
+  final TextEditingController  nomeController = TextEditingController();
+  final TextEditingController  emailController = TextEditingController();
+  final TextEditingController  senhaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
-    final TextEditingController  emailController = TextEditingController();
-    final TextEditingController  senhaController = TextEditingController();
-    final TextEditingController  nomeController = TextEditingController();
 
     return Center(
         child: Column(
@@ -122,7 +122,10 @@ class CriarContaForm extends StatelessWidget {
                   label: 'Entrar',
                   showBorder: false,
                   callback: (){
-                    // myController.text;
+                    print(nomeController.text);
+                    print(emailController.text);
+                    print( senhaController.text);
+                    PessoaControl.cadastrar(nomeController.text, emailController.text, senhaController.text);
                   },
                 )
             ),

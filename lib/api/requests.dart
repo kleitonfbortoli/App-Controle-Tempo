@@ -102,9 +102,9 @@ class Request {
 
   void handlerRequest(Future<http.Response> future) {
     future.then(
-        handle,
+       handle,
     ).catchError(
-            (error) => handleException(error)
+       (error) => handleException(error)
     );
   }
 

@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         backgroundColor: Colors.white,
       ),
-      initialRoute: 'teste-page',
+      initialRoute: 'login',
       routes: {
         'login': (context) => const LoginPage(),
         'create-count': (context) => const CriarContaPage(),

@@ -14,18 +14,17 @@ class SessionControl{
       "password": password,
     };
 
-    print(data);
-
     var authModel = AuthModel();
     authModel.setMethod('login');
     authModel.setSuccessCallback(
-            (Map<String, dynamic>obj) =>
-            {
-              SessionControl().saveJWT(obj['access_token']),
-              SessionControl().getJWT().then((value) => print(value)),
-              SessionControl.toHome()
-          }
-      );
+      (Map<String, dynamic>obj) =>
+      {
+        SessionControl().logout(),
+        SessionControl().saveJWT(obj['access_token']),
+        SessionControl().getJWT().then((value) => print(value)),
+        SessionControl.toHome()
+      }
+    );
 
     authModel.setErrorCallback(
       (Map<String, dynamic>obj) => Fluttertoast.showToast(
@@ -59,7 +58,9 @@ class SessionControl{
 
     authModel.post({});
   }
-
+  void logout() {
+    storage.delete(key: 'JWT');
+  }
   void saveJWT(String jwt) async {
     await storage.write(key: 'JWT', value: jwt);
   }
@@ -81,6 +82,7 @@ class SessionControl{
   }
 
   static void toHome() {
+    print('asd');
     navigatorKey.currentState?.pushNamed('initial-page');
   }
 

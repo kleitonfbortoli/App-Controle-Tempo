@@ -1,14 +1,14 @@
-class Atividade{
-  String descricao;
-  String tempo;
-
-  Atividade(this.descricao, this.tempo);
+class Atividade extends Object {
+  String? nome;
+  String? descricao;
+  int? ref_pessoa;
+  int? ref_atividade;
 
   Object toObject() {
     return {
+      'nome': nome,
       'descricao': descricao,
-      'tempo': tempo,
+      'ref_pessoa': ref_pessoa,
+      'ref_atividade': ref_atividade,
     };
-  }
-
 }

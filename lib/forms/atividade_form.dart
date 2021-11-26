@@ -8,8 +8,6 @@ import 'package:touch/components/system_button.dart';
 import 'package:touch/constants/app_colors.dart';
 
 class AtividadeForm extends StatelessWidget {
-  AtividadeForm({Key? key}) : super(key: key);
-
   TextEditingController  nomeController = TextEditingController();
   TextEditingController  descricaoController = TextEditingController();
 
