@@ -110,7 +110,6 @@ class LoginForm extends StatelessWidget {
               label: 'Entrar',
               showBorder: false,
               callback: (){
-                print(emailController);
                 SessionControl.login(emailController.text, senhaController.text);
               },
             )

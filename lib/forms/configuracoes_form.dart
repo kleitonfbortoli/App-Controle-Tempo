@@ -12,6 +12,7 @@ import 'package:touch/components/return_arrow.dart';
 import 'package:touch/components/system_button.dart';
 import 'package:touch/components/system_text_field.dart';
 import 'package:touch/constants/app_colors.dart';
+import 'package:touch/controlers/session_control.dart';
 
 class ConfiguracoesForm extends StatelessWidget {
   ConfiguracoesForm({Key? key}) : super(key: key);
@@ -73,6 +74,16 @@ class ConfiguracoesForm extends StatelessWidget {
                               Navigator.pushNamed(context, 'tema-page');
                             }
                         ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 10),
+                      child: SystemButton(
+                          label: "Logout",
+                          action: () {
+                            SessionControl().logout();
+                            Navigator.pushNamed(context, 'login');
+                          }
+                      ),
                     ),
                   ],
                 )
